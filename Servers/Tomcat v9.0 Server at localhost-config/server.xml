@@ -153,7 +153,7 @@
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
 
-      <Context docBase="SpringMVCXML" path="/SpringMVCXML" reloadable="true" source="org.eclipse.jst.jee.server:SpringMVCXML"/><Context docBase="SpringMVCStep1" path="/SpringMVCStep1" reloadable="true" source="org.eclipse.jst.jee.server:SpringMVCStep1"/><Context docBase="ServeletMVC" path="/ServeletMVC" reloadable="true" source="org.eclipse.jst.jee.server:ServeletMVC"/></Host>
+      <Context docBase="SpringMVCXML" path="/SpringMVCXML" reloadable="true" source="org.eclipse.jst.jee.server:SpringMVCXML"/><Context docBase="SpringMVCStep1" path="/SpringMVCStep1" reloadable="true" source="org.eclipse.jst.jee.server:SpringMVCStep1"/><Context docBase="ServeletMVC" path="/ServeletMVC" reloadable="true" source="org.eclipse.jst.jee.server:ServeletMVC"/><Context docBase="SpringMavenJava" path="/SpringMavenJava" reloadable="true" source="org.eclipse.jst.jee.server:SpringMavenJava"/><Context docBase="URLMapping" path="/URLMapping" reloadable="true" source="org.eclipse.jst.jee.server:URLMapping"/><Context docBase="RquestMethod" path="/RquestMethod" reloadable="true" source="org.eclipse.jst.jee.server:RquestMethod"/></Host>
     </Engine>
   </Service>
 </Server>
