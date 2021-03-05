@@ -74,21 +74,57 @@ public class TestController {
 		return "Result";
 	}*/
 	//===================================================
-	@GetMapping("/test4")
+	
+	//자동주입을 이용.
+	/*@GetMapping("/test4")
 	public String Test4(@ModelAttribute("DataBean1") DataBean1 bean) {
 		bean.setData1("1");
 		bean.setData2("2");
 		return "forward:/result4";
-	}
+	}*/
 	
-	@GetMapping("/result4")
+	/*@GetMapping("/result4")
 	public String result4(DataBean1 bean) {
 		bean.getData1();
 		bean.getData2();
+		System.out.println(bean.getData1());
+		System.out.println(bean.getData2());
+		return "Result";
+	}*/
+	
+	//모델이용
+	public String Test4(Model model ) {
+		DataBean1 bean = new DataBean1();
+		bean.setData1("1");
+		bean.setData2("2");
+		model.addAttribute("bean",bean);
+		return "forward:/result4";
+	}
+	
+	@GetMapping("/result4")
+	public String reult4(HttpServletRequest req) {
+		DataBean1 bean = (DataBean1)req.getAttribute("bean");
+		System.out.println("data1 :" +bean.getData1());
+		System.out.println("data1 :" +bean.getData2());
 		return "Result";
 	}
 	
+	//================================================
+	@GetMapping("/test5")
+	public String Test5(@ModelAttribute("DataBean1") DataBean1 bean) {
+		bean.setData1("1");
+		bean.setData2("2");
+		return "forward:/result5";
+	}
 	
+	@GetMapping("/result5")
+	public String result4(HttpServletRequest req) {
+		DataBean1 bean = (DataBean1)req.getAttribute("DataBean1");
+		System.out.println(bean.getData1());
+		System.out.println(bean.getData2());		
+		return "Result";
+	}
+
 }
 
 

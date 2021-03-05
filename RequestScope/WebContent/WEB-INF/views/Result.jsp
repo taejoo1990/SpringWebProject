@@ -8,7 +8,6 @@
 </head>
 <body>
 
-data3 : ${requestScope.data3 } <br />
 data1 : ${requestScope.DataBean1.data1 } <br />
 data2 : ${requestScope.DataBean1.data2 } 
 </body>
