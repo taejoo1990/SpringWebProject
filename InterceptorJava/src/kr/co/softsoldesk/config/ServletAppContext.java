@@ -12,6 +12,12 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import kr.co.softsoldesk.interceptor.TestInterceptor;
 import kr.co.softsoldesk.interceptor.TestInterceptor2;
+import kr.co.softsoldesk.interceptor.TestInterceptor3;
+import kr.co.softsoldesk.interceptor.TestInterceptor4;
+import kr.co.softsoldesk.interceptor.TestInterceptor5;
+import kr.co.softsoldesk.interceptor.TestInterceptor6;
+import kr.co.softsoldesk.interceptor.TestInterceptor7;
+import kr.co.softsoldesk.interceptor.TestInterceptor8;
 
 //SpringMVCXML프로젝트의 WebContent/WEB-INF/config/Servlet-context.xml의 기능을 구현.
 //셋팅
@@ -43,16 +49,34 @@ public class ServletAppContext implements WebMvcConfigurer,HandlerInterceptor {
 		//인터셉터 클래스의 객체를 만들기
 		TestInterceptor inter1=new TestInterceptor();
 		TestInterceptor2 inter2 = new TestInterceptor2();
+		TestInterceptor3 inter3 = new TestInterceptor3();
+		TestInterceptor4 inter4 = new TestInterceptor4();
+		TestInterceptor5 inter5 = new TestInterceptor5();
+		TestInterceptor6 inter6 = new TestInterceptor6();
+		TestInterceptor7 inter7 = new TestInterceptor7();
+		TestInterceptor8 inter8 = new TestInterceptor8();
 		
 		//인터셉터 등록
 		InterceptorRegistration reg1=registry.addInterceptor(inter1);
 		InterceptorRegistration reg2=registry.addInterceptor(inter2);
-		
+		InterceptorRegistration reg3= registry.addInterceptor(inter3);
+		InterceptorRegistration reg4= registry.addInterceptor(inter4);
+		InterceptorRegistration reg5= registry.addInterceptor(inter5);
+		InterceptorRegistration reg6= registry.addInterceptor(inter6);
+		InterceptorRegistration reg7= registry.addInterceptor(inter7);
+		InterceptorRegistration reg8= registry.addInterceptor(inter8);
 		
 		//인터셉터 주소만들기(관심사등록)
 		reg1.addPathPatterns("/test1");
 		reg2.addPathPatterns("/test1");
-		
+		reg3.addPathPatterns("/test2");
+		reg4.addPathPatterns("/test1","/test2");
+		reg5.addPathPatterns("/sub1/test3","/sub1/test4");
+		reg6.addPathPatterns("/*");
+		reg7.addPathPatterns("/sub1/*");
+		reg8.addPathPatterns("/**");
+		//인터셉터 관심사 중, 일부 제외
+		reg8.excludePathPatterns("/*");
 	}
 	
 	
